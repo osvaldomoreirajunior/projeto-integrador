@@ -45,6 +45,7 @@ function AtualizarRegistro() {
   let diaPagamentoReceita = document.getElementById('idDiaPagamentoReceita').value;
 
   if (document.getElementById('idValorMensalReceita').checked == true) {
+    let controleFlagValorMensal = true;
     if (nomeReceita == '') {
       alert("O campo da descrição é necessário!");
     } else if (valorReceita == '') {
@@ -53,19 +54,20 @@ function AtualizarRegistro() {
       alert("O campo do dia do pagamento é necessário!");
     } else {
       var chave = _GET('id');
-      var contatoJson = MontarJson(chave);
+      var contatoJson = MontarJson(chave,controleFlagValorMensal);
       window.localStorage.setItem(chave, contatoJson);
       alert("Cliente Atualizado com sucesso");
       VoltarReceita();
     }
   } else {
+    let controleFlagValorMensal = false;
     if (nomeReceita == '') {
       alert("O campo da descrição é necessário!");
     } else if (valorReceita == '') {
       alert("O campo do valor é necessário!");
     } else {
       var chave = _GET('id');
-      var contatoJson = MontarJson(chave);
+      var contatoJson = MontarJson(chave,controleFlagValorMensal);
       window.localStorage.setItem(chave, contatoJson);
       alert("Cliente Atualizado com sucesso");
       VoltarReceita();
@@ -73,10 +75,10 @@ function AtualizarRegistro() {
   }
 }
 
-function MontarJson(chaveCliente) {
+function MontarJson(chaveCliente, controleFlagValorMensal) {
   var nome = document.getElementById('idNomeReceita').value;
   var valor = document.getElementById('idValorReceita').value;
-  var valorMensal = document.getElementById('idValorMensalReceita').value;
+  var valorMensal = controleFlagValorMensal;
   var diaPagamento = document.getElementById('idDiaPagamentoReceita').value;
 
   var contatoJson = JSON.stringify({
