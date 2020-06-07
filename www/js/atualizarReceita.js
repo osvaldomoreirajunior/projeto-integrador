@@ -39,12 +39,6 @@ function montarFormulario() {
 }
 
 function AtualizarRegistro() {
-  //var chave = _GET('id');
-  //var contatoJson = MontarJson();
-  //window.localStorage.setItem(chave, contatoJson);
-
-  //alert("Cliente Atualizado com sucesso");
-  //VoltarReceita();
 
   let nomeReceita = document.getElementById('idNomeReceita').value;
   let valorReceita = document.getElementById('idValorReceita').value;
