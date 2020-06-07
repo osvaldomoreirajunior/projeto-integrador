@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css"><link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <title>Power Gym</title>
+    </head>
+    <body style=" width: 100%; height: 100%" >
+        <div class="container-fluid" align="center">
+        <header class="banner" align="center">
+            <nav style="background: gray; align-content: center;" align="center">
+                <ul class="posi">
+                    <li class="menu"><a href="index.html">Início</a></li>
+                    <li class="menu"><a href="treino.html">Treinos</a></li>
+                    <li class="menu"><a href="exercicio.html">Exercicios</a></li>
+                </ul>
+            </nav>
+        </header>
+        <img src="img/logo.png" style="height: 80px; width: 120px" class="pt-3">
+        <h1 style="font-size: 20px">Power Gym</h1>
+        <input id="idNomeExercicio" type="text" placeholder="Nome do Treino" class="mt-2 mb-2" style="border-radius: 10px; width: 150px; text-align: center;"><br/>
+        <input id="idAreaTrabalhada" type="text" placeholder="Ex: ombro, costas, etc..." class="mt-2 mb-2" style="border-radius: 10px; width: 150px; text-align: center;"><br/>
+        <input id="idEquipamentoUtilizado" type="text" placeholder="Equipamento utilizado" class="mt-2 mb-2" style="border-radius: 10px; width: 150px; text-align: center;"><br/>
+        <input id="idCalGastasHora" type="text" placeholder="Qtd de calorias gastas por hora" class="mt-2 mb-2" style="border-radius: 10px; width: 150px; text-align: center;"><br/>
+        <input type="button" value="Atualizar" id="atualizarExercicios" class="btn btn-lg btn-primary pr-3" style="border-radius: 5px; width: 75px; font-size: 12px; text-align:center;" align="center">
+        <input type="button" value="Cancelar" id="VoltarIndex"><br class="btn btn-lg btn-primary pr-3" style="border-radius: 5px; width: 75px; font-size: 12px; text-align:center;" align="center">
+        </div>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/atualizarExercicio.js"></script>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <title>Exercícios</title>
+    </head>
+    <body>
+        <h1>Cadastro de Exercícios</h1>
+        <input id="idNomeExercicio" type="text" placeholder="Nome do exercício"><br/>
+        <input id="idAreaTrabalhada" type="text" placeholder="Ex: ombro, costas, etc..."><br/>
+        <input id="idEquipamentoUtilizado" type="text" placeholder="Equipamento Utilizado"><br/>
+        <input id="idCalGastasHora" type="text" placeholder="Qtd de calorias gastas por hora"><br/>
+        <input type="button" value="Adicionar Exercicio" id="AddExercicio">
+        <input type="button" value="Refresh" id="listarExercicios"><br>
+        <br>
+        <span style="font-weight:bold;">Registros cadastrados:</span>
+        <span id="lbExercicios"></span>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/cadastrarExercicio.js"></script>
+    </body>
+</html>

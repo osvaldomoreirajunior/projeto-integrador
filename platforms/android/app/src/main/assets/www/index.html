@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <title>Academia</title>
+
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    </head>
+    <body>
+        <div class="container-fluid" align="center" style="">
+
+        <h1>Cadastro de Clientes</h1>
+        <input id="idNomeCliente" type="text" placeholder="Nome Completo" class="mt-2 mb-2" style="border-radius: 10px; weigth: 100px"><br/>
+        <input id="idPesoCliente"  type="text" placeholder="Peso (kg)" style="border-radius: 10px"><br/>
+        <input id="idAlturaCliente"  type="text" placeholder="Altura" class="mt-2 mb-2" style="border-radius: 10px; weigth: 100px"><br/>
+        <!--<input id="idSexoCliente"  type="text" placeholder="Sexo">-->
+        <input type="button" value="Adicionar" id="AddValue" class="btn btn-lg btn-primary btn-block" style="width: 120px; height: 40px; border-radius: 5px">
+        <!--<input type="button" value="Atualizar" id="listarRegistros" class="btn btn-lg btn-primary btn-block" style="width: 120px; height: 40px; border-radius: 5px">-->
+        <br>
+        <span id="lbClientes"></span>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/cadastrarCliente.js"></script>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+    <title>Treinos</title>
+</head>
+
+<body>
+    <h1>Cadastro de Treinos (Atividades)</h1>
+
+    <select id="idNomeCliente"></select><br><br>
+    <select id="idNomeExercicio"></select><br><br>
+
+    <label>Data</label>
+    <input id="idDataTreino" type="date"><br/>
+
+    <label>Horário Inicial do Treino</label>
+    <input id="idHoraInicialTreino" type="time"><br/>
+
+    <label>Horário Final do Treino</label>
+    <input id="idHoraFinalTreino" type="time"><br/>
+
+    <input id="idBotaoAdicionar" type="button" value="Adicionar Treino">
+    <input id="idListarTreinos" type="button" value="Refresh"><br>
+    <br>
+    <span style="font-weight:bold;">Treinos cadastrados:</span>
+    <span id="lbTreinos"></span>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/cadastrarTreino.js"></script>
+
+</body>
+</html>
