@@ -131,7 +131,7 @@ function listarRegistros() {
       lista = lista + '<td>' + contatoArray.nomeReceita + '</td>';
       lista = lista + '<td>' + contatoArray.valorReceita + '</td>';
       lista = lista + '<td>' + contatoArray.diaPagamentoReceita + '</td>';
-      lista = lista + "<td><a href='atualizarCliente.html?id=" + chave2 + "'><img src='img/desenhar.png'/></a></td>";
+      lista = lista + "<td><a href='atualizarReceitas.html?id=" + chave2 + "'><img src='img/desenhar.png'/></a></td>";
       lista = lista + "<td><a href='#' id='" + chave2 + "' class='apagar' data-atributo='" + chave + "'/><img src='img/icon.png'/></td>";
       //lista = lista + "<td><a href='relatorioClienteTreino.html?id=" + chave + "'><img src='img/prancheta.png'/></a></td>"; 
       lista = lista + '</tr></tbody>'
