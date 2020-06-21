@@ -17,12 +17,11 @@ function _GET(name) {
 
 function montarFormulario() {
   var chave = _GET('id');
-  console.log(chave);
+
   if (chave != null)
     contatoJson = window.localStorage.getItem(chave);
 
   let receitaArray = JSON.parse(contatoJson);
-  console.log(receitaArray);
 
   document.getElementById('idNomeReceita').value = receitaArray.nomeReceita;
   document.getElementById('idValorReceita').value = receitaArray.valorReceita;
@@ -92,5 +91,5 @@ function MontarJson(chaveCliente, controleFlagValorMensal) {
 }
 
 function VoltarReceita() {
-  location.href = "receitas.html";
+  location.href = "cadastroReceitas.html";
 }

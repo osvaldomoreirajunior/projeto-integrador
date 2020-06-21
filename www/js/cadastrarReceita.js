@@ -3,7 +3,7 @@ document.getElementById("AddValue").addEventListener("click", AddValue, false);
 document.getElementById("listarRegistros").addEventListener("click", listarRegistros, false);
 
 function getIndice() {
-  indiceJson = window.localStorage.getItem("indice");
+  indiceJson = window.localStorage.getItem("indiceReceita");
   indiceArray = JSON.parse(indiceJson);
 
   return indiceArray;
@@ -13,7 +13,7 @@ function GerarChave() {
   indiceArray = getIndice();
 
   if (indiceArray == null) {
-    window.localStorage.setItem("indice", '[0]');
+    window.localStorage.setItem("indiceReceita", '[0]');
     novo = 0;
   }
   else {
@@ -21,10 +21,10 @@ function GerarChave() {
     indiceArray.push(novo);
     indiceJson = JSON.stringify(indiceArray);
     //console.log("Indice Json "+indiceJson);
-    window.localStorage.setItem("indice", indiceJson);
+    window.localStorage.setItem("indiceReceita", indiceJson);
   }
 
-  return "c" + novo;
+  return "r" + novo;
 }
 
 function AddValue() {
@@ -117,15 +117,10 @@ function listarRegistros() {
     chave = indiceArray[i];
 
     if (chave != null) {
-      chave2 = "c" + indiceArray[i];
+      chave2 = "r" + indiceArray[i];
       contatoJson = window.localStorage.getItem(chave2);
 
       contatoArray = JSON.parse(contatoJson);
-
-      //lista = lista + '<tr><td>' + chave2 + '</td><td>' + contatoArray.nomeCliente + '</td><td>' + contatoArray.pesoCliente + '</td><td>' + contatoArray.alturaCliente + '</td>';
-      //lista = lista + "<td><a href='atualizarCliente.html?id=" + chave2 + "'>Editar</a></td>";
-      //lista = lista + "<td><a href='#' id='" + chave2 + "' class='apagar' data-atributo='" + chave + "' >Apagar</a></td></tr>";                 
-      //lista = lista + "<td><a href='relatorioClienteTreino.html?id=" + chave + "'>Ver relatório</a></td>";
 
       lista = lista + '<tbody><tr>';
       lista = lista + '<td>' + contatoArray.nomeReceita + '</td>';
@@ -133,7 +128,6 @@ function listarRegistros() {
       lista = lista + '<td>' + contatoArray.diaPagamentoReceita + '</td>';
       lista = lista + "<td><a href='atualizarReceitas.html?id=" + chave2 + "'><img src='img/desenhar.png'/></a></td>";
       lista = lista + "<td><a href='#' id='" + chave2 + "' class='apagar' data-atributo='" + chave + "'/><img src='img/icon.png'/></td>";
-      //lista = lista + "<td><a href='relatorioClienteTreino.html?id=" + chave + "'><img src='img/prancheta.png'/></a></td>"; 
       lista = lista + '</tr></tbody>'
     }
   }
@@ -151,7 +145,7 @@ function listarRegistros() {
 }
 
 function apagar(chave) {
-  window.localStorage.removeItem("c" + chave);
+  window.localStorage.removeItem("r" + chave);
 
   ApagarChave(chave);
 
@@ -165,6 +159,6 @@ function ApagarChave(chave) {
   indiceArray[chave] = null;
 
   indiceJson = JSON.stringify(indiceArray);
-  window.localStorage.setItem("indice", indiceJson);
+  window.localStorage.setItem("indiceReceita", indiceJson);
 
 }

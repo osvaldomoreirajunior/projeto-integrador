@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>ContaControl</title>
+</head>
+<body style=" width: 100%; height: 100%" onload="montarFormulario()">
+        <div class="container-fluid" align="center">
+            <header class="banner">
+                <nav style="background: gray; align-content: center;">
+                    <ul class="posi">
+                        <li class="menu"><a href="cadastroReceitas.html">Receitas</a></li>
+                        <li class="menu"><a href="cadastroDespesa.html">Despesas</a></li>
+                        <li class="menu"><a href="cadastroCategorias.html">Categorias</a></li>
+                        <li class="menu"><a href="COLOQUE_O_LINK_AQUI.html">Relatório</a></li>
+                    </ul>
+                </nav>
+            </header>
+    <img src="img/logo.png" style="height: 80px; width: 120px" class="pt-3">
+    <h1 style="font-size: 20px">ContaControl</h1>
+
+    <label>Nome da categoria</label><br>
+    <input type="text" disabled="disabled" id="idNomeCategoria" class="mt-2 mb-2" style="border-radius: 10px; width: 150px; text-align: center;"> <br/>
+
+    <label>Data da despesa</label><br>
+    <input id="idDataDespesa" type="date" class="mt-2 mb-2" style="border-radius: 10px; width: 150px; text-align: center;"><br/>
+
+    <label>Nome da despesa</label><br>
+    <input id="idNomeDespesa" type="text" class="mt-2 mb-2" style="border-radius: 10px; width: 150px; text-align: center;"><br/>
+
+    <label>Valor da despesa</label><br>
+    <input id="idValorDespesa" type="number" placeholder="100,00" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="mt-2 mb-2" style="border-radius: 10px; width: 225px; text-align: center;" /><br>
+    
+    <input type="button" value="Atualizar" id="AtualizarDespesa" class="btn btn-lg btn-primary pr-3" style="border-radius: 5px; width: 75px; font-size: 12px; text-align:center;" align="center">
+    <input type="button" value="Cancelar" id="VoltarDespesa" class="btn btn-lg btn-primary pr-3" style="border-radius: 5px; width: 75px; font-size: 12px; text-align:center;" align="center"><br>
+    </div>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/atualizarDespesa.js"></script>
+</body>
+</html>
