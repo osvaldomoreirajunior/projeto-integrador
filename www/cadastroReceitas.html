@@ -27,9 +27,8 @@
             <h1 style="font-size: 20px">Conta Control</h1>
             
             <input id="idNomeReceita" type="text" placeholder="Descrição da receita" class="mt-2 mb-2" style="border-radius: 10px; width: 225px; text-align: center;"><br/>
-            <input id="idValorReceita"  type="text" placeholder="Valor" class="mt-2 mb-2" style="border-radius: 10px; width: 225px; text-align: center;"><br/>
-            <input id="idValorMensalReceita"  type="checkbox" onclick="habilitarDiaPagamento()" > Valor Mensal <br/>
-            <input id="idDiaPagamentoReceita" style="display: none;" value="" maxlength="" type="number" placeholder="Dia do pagamento mensal" class="mt-2 mb-2"><br/>
+            <input id="idValorReceita" type="number" placeholder="100,00" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="mt-2 mb-2" style="border-radius: 10px; width: 225px; text-align: center;"><br/>
+            <input id="idDiaPagamentoReceita" type="date" class="mt-2 mb-2" style="border-radius: 10px; width: 225px; text-align: center;"><br/>
             
             <input type="button" value="Adicionar" id="AddValue" class="btn btn-lg btn-primary pr-3" style="border-radius: 5px; width: 150px; font-size: 12px; text-align:center;" align="center">
             <h6 class=" my-4">Receitas Cadastradas:</h6>

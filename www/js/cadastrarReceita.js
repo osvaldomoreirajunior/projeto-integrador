@@ -32,43 +32,27 @@ function AddValue() {
   let valorReceita = document.getElementById('idValorReceita').value;
   let diaPagamentoReceita = document.getElementById('idDiaPagamentoReceita').value;
 
-  if (document.getElementById('idValorMensalReceita').checked == true) {
-    let controleFlagValorMensal = true;
-    if (nomeReceita == '') {
-      alert("O campo da descrição é necessário!");
-    } else if (valorReceita == '') {
-      alert("O campo do valor é necessário!");
-    } else if(diaPagamentoReceita == ''){
-      alert("O campo do dia do pagamento é necessário!");
-    } else {
-      var chave = GerarChave();
-      var contatoJson = MontarJson(chave, controleFlagValorMensal);
-      window.localStorage.setItem(chave, contatoJson);
-      alert("Receita cadastrada com sucesso");
-      listarRegistros();
-      limparCampos();
-    }
+
+  if (nomeReceita == '') {
+    alert("O campo da descrição é necessário!");
+  } else if (valorReceita == '') {
+    alert("O campo do valor é necessário!");
+  } else if (diaPagamentoReceita == '') {
+    alert("O campo do dia do pagamento é necessário!");
   } else {
-    let controleFlagValorMensal = false;
-    if (nomeReceita == '') {
-      alert("O campo da descrição é necessário!");
-    } else if (valorReceita == '') {
-      alert("O campo do valor é necessário!");
-    } else {
-      var chave = GerarChave();
-      var contatoJson = MontarJson(chave, controleFlagValorMensal);
-      window.localStorage.setItem(chave, contatoJson);
-      alert("Receita cadastrada com sucesso");
-      listarRegistros();
-      limparCampos();
-    }
+    var chave = GerarChave();
+    var contatoJson = MontarJson(chave);
+    window.localStorage.setItem(chave, contatoJson);
+    alert("Receita cadastrada com sucesso");
+    listarRegistros();
+    limparCampos();
   }
 }
+
 
 function limparCampos() {
   document.getElementById('idNomeReceita').value = '';
   document.getElementById('idValorReceita').value = '';
-  document.getElementById('idValorMensalReceita').checked = false;
   document.getElementById('idDiaPagamentoReceita').value = '';
   habilitarDiaPagamento();
 }
@@ -83,18 +67,18 @@ function habilitarDiaPagamento() {
   }
 }
 
-function MontarJson(chaveCliente, controleFlagValorMensal) {
+function MontarJson(chaveCliente) {
   var nome = document.getElementById('idNomeReceita').value;
   var valor = document.getElementById('idValorReceita').value;
-  var valorMensal = controleFlagValorMensal;
   var diaPagamento = document.getElementById('idDiaPagamentoReceita').value;
+
+  var dataFormatada = diaPagamento.split("-").reverse().join("-");
 
   var contatoJson = JSON.stringify({
     id: chaveCliente,
     nomeReceita: nome,
     valorReceita: valor,
-    flagValorMensal: valorMensal,
-    diaPagamentoReceita: diaPagamento
+    diaPagamentoReceita: dataFormatada
   });
   return contatoJson;
 }
