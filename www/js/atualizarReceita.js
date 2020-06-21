@@ -55,7 +55,7 @@ function AtualizarRegistro() {
       var chave = _GET('id');
       var contatoJson = MontarJson(chave,controleFlagValorMensal);
       window.localStorage.setItem(chave, contatoJson);
-      alert("Cliente Atualizado com sucesso");
+      alert("Receita atualizada com sucesso");
       VoltarReceita();
     }
   } else {
@@ -68,7 +68,7 @@ function AtualizarRegistro() {
       var chave = _GET('id');
       var contatoJson = MontarJson(chave,controleFlagValorMensal);
       window.localStorage.setItem(chave, contatoJson);
-      alert("Cliente Atualizado com sucesso");
+      alert("Receita atualizada com sucesso");
       VoltarReceita();
     }
   }

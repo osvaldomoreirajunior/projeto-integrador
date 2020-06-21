@@ -57,7 +57,6 @@ function MontarJson(){
     despesaArray = JSON.parse(despesaJson);
 
     var categoriaJson = JSON.parse(despesaArray.CategoriaDespesaCbo);
-    alert(categoriaJson);
 
     var dataDespesa = document.getElementById('idDataDespesa').value;
     var dataDespesa = document.getElementById('idDataDespesa').value;
@@ -73,8 +72,6 @@ var despesaJson = JSON.stringify({
   NomeDespesa : nomeDespesa,
   ValorDespesa : valorDespesa
 });
-alert(categoriaJson.id);
-alert(despesaJson);
 return despesaJson;
 }
 

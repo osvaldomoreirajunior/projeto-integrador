@@ -44,6 +44,7 @@ function AddValue() {
       var chave = GerarChave();
       var contatoJson = MontarJson(chave, controleFlagValorMensal);
       window.localStorage.setItem(chave, contatoJson);
+      alert("Receita cadastrada com sucesso");
       listarRegistros();
       limparCampos();
     }
@@ -57,6 +58,7 @@ function AddValue() {
       var chave = GerarChave();
       var contatoJson = MontarJson(chave, controleFlagValorMensal);
       window.localStorage.setItem(chave, contatoJson);
+      alert("Receita cadastrada com sucesso");
       listarRegistros();
       limparCampos();
     }
