@@ -152,7 +152,7 @@ function listarStatus() {
   lista = lista + '<tr>';
   lista = lista + '<th scope="col">Receita Total</th>';
   lista = lista + '<th scope="col">Despesa Total</th>';
-  lista = lista + '<th scope="col">Status</th>';
+  lista = lista + '<th scope="col">Status Atual</th>';
   lista = lista + '</tr>';
   lista = lista + '</thead>';
 
