@@ -1,4 +1,4 @@
-document.getElementById("idBotaoRelatorio").addEventListener("click", teste, false);
+document.getElementById("idBotaoRelatorio").addEventListener("click", relatorio, false);
 popularSelectCategoria();
 
 function getIndiceDespesa() {
@@ -51,11 +51,21 @@ function popularSelectCategoria() {
   }
 }
 
-function teste() {
+function relatorio() {
   let despesa = ValorDespesaPeriodo();
   let receita = ValorReceitaPeriodo();
-  console.log(receita - despesa);
-  //fazer o grafico com o chart.js
+  let statusAtual = receita - despesa;
+
+  dataInicial = document.getElementById('idDataInicio').value;
+  dataFinal = document.getElementById('idDataFinal').value;
+  if (dataInicial == '') {
+    alert("A data Inicial é obrigatória!");
+  } else if (dataFinal == '') {
+    alert("A data Final é obrigatória!");
+  } else {
+    listarStatus();
+    gerarGrafico(despesa, receita, statusAtual);
+  }
 }
 
 function ValorDespesaPeriodo() {
@@ -87,23 +97,11 @@ function ValorDespesaPeriodo() {
         if (dataFormatada >= dataInicial && dataFormatada <= dataFinal) {
           valorDespObj = Number(despesaObj.ValorDespesa);
           valorDespesa += valorDespObj;
-
-          console.log(selectCategoria);
-          console.log(idCategoria);
-          console.log('valorDespesa:' + valorDespObj);
-          console.log('nome despesa: ' + despesaObj.NomeDespesa);
-          console.log('total:' + valorDespesa);
         }
       } else if (selectCategoria == "Selecione...") {
         if (dataFormatada >= dataInicial && dataFormatada <= dataFinal) {
           valorDespObj = Number(despesaObj.ValorDespesa);
           valorDespesa += valorDespObj;
-
-          console.log(selectCategoria);
-          console.log(idCategoria);
-          console.log('valorDespesa:' + valorDespObj);
-          console.log('nome despesa: ' + despesaObj.NomeDespesa);
-          console.log('total:' + valorDespesa);
         }
       }
     }
@@ -136,13 +134,92 @@ function ValorReceitaPeriodo() {
       if (dataFormatada >= dataInicial && dataFormatada <= dataFinal) {
         valorReceitaObj = Number(ReceitaObj.valorReceita);
         valorReceita += valorReceitaObj;
-
-        console.log('valorReceita:' + valorReceita);
-        console.log('nome receita: ' + ReceitaObj.nomeReceita);
-        console.log('total:' + valorReceita);
       }
     }
   }
   console.log(valorReceita);
   return valorReceita;
+}
+
+function listarStatus() {
+
+  let totalReceita = ValorReceitaPeriodo();
+  let totalDespesa = ValorDespesaPeriodo();
+  let status = totalReceita - totalDespesa;
+
+  var lista = '<table class="table table-striped">';
+  lista = lista + '<thead>';
+  lista = lista + '<tr>';
+  lista = lista + '<th scope="col">Receita Total</th>';
+  lista = lista + '<th scope="col">Despesa Total</th>';
+  lista = lista + '<th scope="col">Status</th>';
+  lista = lista + '</tr>';
+  lista = lista + '</thead>';
+
+  lista = lista + '<tbody><tr>';
+  lista = lista + '<td>' + "R$ " + totalReceita + '</td>';
+  lista = lista + '<td>' + "R$ " + totalDespesa + '</td>';
+
+  lista = iconeFelizTriste(lista, status);
+
+  lista = lista + '</tr></tbody>'
+  lista = lista + "</table>";
+
+  lbRelatorio.innerHTML = lista;
+}
+
+function iconeFelizTriste(lista, status){
+  if(status > 0){
+    lista = lista + "<td>" + "R$ " +  status + "  " + "<img src='img/happy_face.png'/></td>";
+  } else {
+    lista = lista + "<td>" + "R$ " + status + "  " + "<img src='img/sad_face.png'/></td>";
+  }
+  return lista;
+}
+
+function gerarGrafico(despesa, receita, statusAtual) {
+
+  document.getElementById("chart-test").innerHTML = '<canvas id="myChart"></canvas>';
+
+  let ctx = document.getElementById('myChart').getContext('2d');
+  let labels = ['Despesa', 'Receita', 'Status Atual'];
+  let colorHex = ['#FB3640', '#00FF7F', '#EFCA08'];
+
+  let myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      datasets: [{
+        data: [despesa, receita, statusAtual],
+        backgroundColor: colorHex
+      }],
+      labels: labels
+    },
+    options: {
+      responsive: true,
+      legend: {
+        position: 'bottom'
+      },
+      plugins: {
+        datalabels: {
+          color: '#fff',
+          anchor: 'end',
+          align: 'start',
+          offset: -10,
+          borderWidth: 2,
+          borderColor: '#fff',
+          borderRadius: 25,
+          backgroundColor: (context) => {
+            return context.dataset.backgroundColor;
+          },
+          font: {
+            weight: 'bold',
+            size: '12'
+          },
+          formatter: (value) => {
+            return 'R$ ' + value;
+          }
+        }
+      }
+    }
+  })
 }
