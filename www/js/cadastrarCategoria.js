@@ -2,48 +2,53 @@ document.addEventListener("deviceready", listarRegistros, false);
 document.getElementById("AddValue").addEventListener("click", AddValue, false);
 document.getElementById("listarRegistros").addEventListener("click", listarRegistros, false);
 
-function getIndice(){
+function getIndice() {
   indiceJson = window.localStorage.getItem("indiceCategoria");
   indiceArray = JSON.parse(indiceJson);
 
   return indiceArray;
 }
 
-function GerarChave(){
-    indiceArray = getIndice();
+function GerarChave() {
+  indiceArray = getIndice();
 
-    if(indiceArray == null) {
-       window.localStorage.setItem("indiceCategoria", '[0]');
-       novo = 0;
-    }
-    else{
-      novo = indiceArray.length;
-      indiceArray.push(novo);
-      indiceJson = JSON.stringify(indiceArray);
-      //console.log("Indice Json "+indiceJson);
-      window.localStorage.setItem("indiceCategoria", indiceJson);
-    }
+  if (indiceArray == null) {
+    window.localStorage.setItem("indiceCategoria", '[0]');
+    novo = 0;
+  }
+  else {
+    novo = indiceArray.length;
+    indiceArray.push(novo);
+    indiceJson = JSON.stringify(indiceArray);
+    //console.log("Indice Json "+indiceJson);
+    window.localStorage.setItem("indiceCategoria", indiceJson);
+  }
 
-    return "c"+novo;
+  return "c" + novo;
 }
 
-function AddValue(){
-  var chave = GerarChave();
-  var categoriaJson = MontarJson(chave);
+function AddValue() {
 
-  window.localStorage.setItem(chave, categoriaJson);
+  var nomeCat = document.getElementById('idNomeCategoria').value;
 
-  alert("Categoria cadastrada com sucesso");
+  if (nomeCat == '') {
+    alert("O campo nome categoria é necessário!")
+  } else {
+    var chave = GerarChave();
+    var categoriaJson = MontarJson(chave);
 
-  listarRegistros();
+    window.localStorage.setItem(chave, categoriaJson);
+    alert("Categoria cadastrada com sucesso");
+    listarRegistros();
+  }
 
 }
 
-function MontarJson(chaveCategoria){
+function MontarJson(chaveCategoria) {
   var nomeCat = document.getElementById('idNomeCategoria').value;
   var categoriaJson = JSON.stringify({
-    id : chaveCategoria,
-    nomeCategoria : nomeCat
+    id: chaveCategoria,
+    nomeCategoria: nomeCat
   });
 
   return categoriaJson;
@@ -91,8 +96,8 @@ function listarRegistros() {
 
 }
 
-function apagar(chave){
-  window.localStorage.removeItem("c"+chave);
+function apagar(chave) {
+  window.localStorage.removeItem("c" + chave);
 
   ApagarChave(chave);
 
@@ -101,7 +106,7 @@ function apagar(chave){
   listarRegistros();
 }
 
-function ApagarChave(chave){
+function ApagarChave(chave) {
   indiceArray = getIndice();
 
   indiceArray[chave] = null;
