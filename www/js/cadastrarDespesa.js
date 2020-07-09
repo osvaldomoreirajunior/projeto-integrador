@@ -80,7 +80,7 @@ function listarDespesas() {
 
   indiceArray = getIndice();
 
-  var lista = '<table class="table table-striped">';
+  var lista = '<table class="table table-striped" id="page" style="width: 100%;">';
   lista = lista + '<thead>';
   lista = lista + '<tr>';
   lista = lista + '<th scope="col">Categoria</th>';

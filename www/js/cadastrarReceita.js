@@ -88,12 +88,12 @@ function listarRegistros() {
 
   indiceArray = getIndice();
 
-  var lista = '<table class="table table-striped">';
+  var lista = '<table class="table table-striped" id="page" style="width: 100%;">';
   lista = lista + '<thead>';
   lista = lista + '<tr>';
   lista = lista + '<th scope="col">Nome</th>';
   lista = lista + '<th scope="col">Valor</th>';
-  lista = lista + '<th scope="col">Mensal</th>';
+  lista = lista + '<th scope="col">Data</th>';
   lista = lista + '<th scope="col"></th>';
   lista = lista + '</tr>';
   lista = lista + '</thead>';

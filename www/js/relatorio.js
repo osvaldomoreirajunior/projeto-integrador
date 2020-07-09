@@ -54,7 +54,6 @@ function popularSelectCategoria() {
 function relatorio() {
   let despesa = ValorDespesaPeriodo();
   let receita = ValorReceitaPeriodo();
-  let statusAtual = receita - despesa;
 
   dataInicial = document.getElementById('idDataInicio').value;
   dataFinal = document.getElementById('idDataFinal').value;
@@ -64,7 +63,7 @@ function relatorio() {
     alert("A data Final é obrigatória!");
   } else {
     listarStatus();
-    gerarGrafico(despesa, receita, statusAtual);
+    gerarGrafico(despesa, receita);
   }
 }
 
@@ -177,19 +176,19 @@ function iconeFelizTriste(lista, status){
   return lista;
 }
 
-function gerarGrafico(despesa, receita, statusAtual) {
+function gerarGrafico(despesa, receita) {
 
   document.getElementById("chart-test").innerHTML = '<canvas id="myChart"></canvas>';
 
   let ctx = document.getElementById('myChart').getContext('2d');
-  let labels = ['Despesa', 'Receita', 'Status Atual'];
-  let colorHex = ['#FB3640', '#00FF7F', '#EFCA08'];
+  let labels = ['Despesa', 'Receita'];
+  let colorHex = ['#FB3640', '#00FF7F'];
 
   let myChart = new Chart(ctx, {
     type: 'pie',
     data: {
       datasets: [{
-        data: [despesa, receita, statusAtual],
+        data: [despesa, receita],
         backgroundColor: colorHex
       }],
       labels: labels
